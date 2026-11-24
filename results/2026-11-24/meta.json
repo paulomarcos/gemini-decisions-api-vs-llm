@@ -1,0 +1,76 @@
+{
+  "date": "2026-11-24",
+  "started": "2026-11-24T16:40:55",
+  "dry_run": false,
+  "sdk": "google-genai 3.6.1",
+  "python": "3.14.3",
+  "machine": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "lanes": {
+    "A": {
+      "label": "Cheap LLM",
+      "model": "gemini-3.5-flash-lite",
+      "thinking": "minimal",
+      "price_in": 0.3,
+      "price_out": 2.5
+    },
+    "B": {
+      "label": "Stronger LLM",
+      "model": "gemini-3.8-flash",
+      "thinking": "low",
+      "price_in": 0.75,
+      "price_out": 3.75
+    },
+    "C": {
+      "label": "Convert first",
+      "model": "gemini-3.5-flash-lite",
+      "thinking": "minimal",
+      "price_in": 0.3,
+      "price_out": 2.5
+    },
+    "D": {
+      "label": "Decisions",
+      "model": "gemini-decision-1",
+      "price_in": 0.1,
+      "price_out": 0.0
+    }
+  },
+  "decision_resolution": "low",
+  "temperature": 0,
+  "prices_checked": "2026-11-24",
+  "runs": 3,
+  "items": [
+    "I1_receipt_photo",
+    "I2_carrier_portal_error",
+    "I4_shipping_label_photo",
+    "P1_carrier_invoice",
+    "P2_software_contract",
+    "P3_scanned_delivery_note_ja",
+    "P4_damage_claim_form",
+    "T1_angry_bilingual_email",
+    "T2_order_status_chat",
+    "T3_b2b_quote_request",
+    "T4_restaurant_newsletter",
+    "V1_label_error_flash",
+    "V2_checkout_double_charge",
+    "V3_tracking_delays",
+    "V4_product_preview",
+    "PM_get_refund_16774",
+    "PM_payment_issue_18586",
+    "PM_track_order_24979",
+    "PM_change_shipping_address_2678",
+    "PM_newsletter_subscription_17424",
+    "PR_cord_test_94",
+    "PR_cord_test_18",
+    "PR_cord_test_73",
+    "PR_cord_test_99",
+    "PR_cord_test_0"
+  ],
+  "model_versions": {
+    "A": "gemini-3.5-flash-lite",
+    "B": "gemini-3.8-flash",
+    "C": "gemini-3.5-flash-lite"
+  },
+  "finished": "2026-11-24T16:49:01",
+  "spent_usd": 0.17319,
+  "stopped": null
+}

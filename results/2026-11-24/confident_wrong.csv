@@ -1,0 +1,7 @@
+test,run,item_id,question_id,answer,label,confidence,correct_lenient
+kumo,1,T3_b2b_quote_request,personal_data,no,yes,0.952,False
+kumo,1,V3_tracking_delays,shows_error,no,yes,0.94,True
+kumo,2,T3_b2b_quote_request,personal_data,no,yes,0.952,False
+kumo,2,V3_tracking_delays,shows_error,no,yes,0.94,True
+kumo,3,T3_b2b_quote_request,personal_data,no,yes,0.952,False
+kumo,3,V3_tracking_delays,shows_error,no,yes,0.94,True

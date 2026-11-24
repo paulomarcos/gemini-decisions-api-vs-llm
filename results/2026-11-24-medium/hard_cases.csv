@@ -1,0 +1,4 @@
+item_id,lane,lane_name,accuracy_strict,accuracy_lenient,wrong_answers,note
+I1_receipt_photo,D,Decisions,87.5,87.5,human_approval=no (want yes) x3,
+I4_shipping_label_photo,D,Decisions,75.0,75.0,urgency=0 (want 2) x3; severity=1 (want 2) x3,
+V1_label_error_flash,D,Decisions,100.0,100.0,,

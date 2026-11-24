@@ -1,0 +1,4 @@
+test,run,item_id,question_id,answer,label,confidence,correct_lenient
+kumo,1,V3_tracking_delays,shows_error,no,yes,0.94,True
+kumo,2,V3_tracking_delays,shows_error,no,yes,0.94,True
+kumo,3,V3_tracking_delays,shows_error,no,yes,0.926,True

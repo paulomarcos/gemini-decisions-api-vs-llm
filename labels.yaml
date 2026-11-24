@@ -1,0 +1,173 @@
+# Correct answers for the Kumo Supply inbox test, known by construction (see build/build_items.py).
+# `answer` is the label used for scoring. `also_ok` lists answers that a careful human could also defend.
+# Accuracy is reported two ways: strict (answer only) and lenient (answer or also_ok).
+# The items marked `hard` were made difficult on purpose.
+
+T1_angry_bilingual_email:            # same customer and order as V2
+  hard: "Fits two teams (late delivery + double charge); mixes Japanese and English"
+  team: {answer: billing, also_ok: [shipping]}
+  urgency: {answer: 2, also_ok: [3]}
+  personal_data: yes          # name + phone + personal email
+  human_approval: yes         # refund
+  refund_request: yes
+  language: mixed
+  sender_type: existing_customer
+  request_count: 2            # refund the extra charge + find the boxes
+
+T2_order_status_chat:
+  team: shipping
+  urgency: {answer: 1, also_ok: [2]}
+  personal_data: no           # an order number only
+  human_approval: no
+  refund_request: no
+  language: english
+  sender_type: existing_customer
+  request_count: 1
+
+T3_b2b_quote_request:
+  team: sales
+  urgency: 1
+  personal_data: yes          # name + work email
+  human_approval: yes         # a quote is a commitment to a customer
+  refund_request: no
+  language: english
+  sender_type: new_prospect
+  request_count: 1
+
+T4_restaurant_newsletter:
+  hard: "Irrelevant item: tests the `other` option"
+  team: other
+  urgency: 0
+  personal_data: no
+  human_approval: no
+  refund_request: no
+  language: english
+  sender_type: not_a_customer
+  request_count: 0
+
+I1_receipt_photo:
+  hard: "Phone photo: tilted, blurred, Japanese text"
+  team: billing
+  urgency: {answer: 0, also_ok: [1]}
+  personal_data: no
+  human_approval: yes         # reimbursing an expense moves money
+  japanese_text: yes
+  image_kind: receipt
+  next_action: file_expense
+  severity: 0
+
+I2_carrier_portal_error:
+  team: tech
+  urgency: {answer: 3, also_ok: [2]}
+  personal_data: no
+  human_approval: no
+  japanese_text: no
+  image_kind: error_screenshot
+  next_action: fix_software
+  severity: 3                 # 23 orders blocked
+
+I3_damaged_parcel_photo:     # real photo from a public CC BY 4.0 dataset (see fetch step in the test plan)
+  team: shipping
+  urgency: 2
+  personal_data: no           # pick an image with no readable label text
+  human_approval: yes         # damage claim = compensation
+  japanese_text: no
+  image_kind: parcel_photo
+  next_action: open_damage_claim
+  severity: 2
+
+I4_shipping_label_photo:
+  hard: "Postal code covered by a stain; Japanese address"
+  team: shipping
+  urgency: 2
+  personal_data: yes          # name + address + phone
+  human_approval: no
+  japanese_text: yes
+  image_kind: shipping_label
+  next_action: reprint_label
+  severity: 2
+
+V1_label_error_flash:
+  hard: "The error is visible for only 2 seconds of a 15-second recording"
+  team: tech
+  urgency: 2
+  personal_data: {answer: no, also_ok: [yes]}   # recipient initial + address shown; no full name
+  human_approval: no
+  shows_error: yes
+  screen: label_creation
+  next_action: create_bug_ticket
+  orders_affected: 1
+
+V2_checkout_double_charge:   # same customer and order as T1
+  team: billing
+  urgency: {answer: 2, also_ok: [3]}
+  personal_data: yes          # name + card ending
+  human_approval: yes         # refund
+  shows_error: yes            # "Payment failed. Please try again."
+  screen: checkout
+  next_action: check_refund
+  orders_affected: 1
+
+V3_tracking_delays:
+  team: shipping
+  urgency: {answer: 2, also_ok: [3]}
+  personal_data: no
+  human_approval: no
+  shows_error: {answer: yes, also_ok: [no]}     # red "delayed" warning, not a software error
+  screen: tracking
+  next_action: contact_carrier
+  orders_affected: 3          # 37 shipments
+
+V4_product_preview:
+  hard: "Nothing is wrong: tests `no_action` and `other`"
+  team: {answer: other, also_ok: [sales]}
+  urgency: 0
+  personal_data: no
+  human_approval: no
+  shows_error: no
+  screen: product_page
+  next_action: no_action
+  orders_affected: 0
+
+P1_carrier_invoice:
+  hard: "Two hidden discrepancies: 412 parcels billed vs 398 in the annex; 18% fuel surcharge vs 12% in the contract"
+  team: billing
+  urgency: {answer: 1, also_ok: [2]}
+  personal_data: no
+  human_approval: yes
+  money_decision: yes
+  doc_type: invoice
+  language: english
+  discrepancies: 2
+
+P2_software_contract:
+  hard: "Auto-renewal for 24 months and a possible 15% price increase, in clause 9, split across the bottom of page 1 and the top of page 2"
+  team: management
+  urgency: 1
+  personal_data: no
+  human_approval: yes
+  money_decision: yes
+  doc_type: contract
+  language: english
+  discrepancies: 0
+
+P3_scanned_delivery_note_ja:
+  hard: "Scanned image with no text layer, Japanese only, 200 boxes short-shipped"
+  team: shipping
+  urgency: 1
+  personal_data: no
+  human_approval: {answer: no, also_ok: [yes]}
+  money_decision: no
+  doc_type: delivery_note
+  language: japanese
+  discrepancies: 1            # 600 ordered, 400 delivered
+
+P4_damage_claim_form:
+  team: {answer: shipping, also_ok: [billing]}
+  urgency: 2
+  personal_data: yes
+  human_approval: yes
+  money_decision: yes
+  doc_type: claim_form
+  language: english
+  discrepancies: 0            # 3 x ¥1,800 = ¥5,400, consistent

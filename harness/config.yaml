@@ -1,0 +1,21 @@
+# Models and prices for the decisions test.
+# Prices: USD per 1M tokens, standard paid tier, from https://aistudio.google.com/docs/pricing
+# Checked 2026-11-24. RE-CHECK ON THE DAY OF THE RUN and on publish day.
+# Thinking tokens are billed at the output price.
+checked: "2026-11-24"
+lanes:
+  A: {label: "Cheap LLM",     model: gemini-3.5-flash-lite, thinking: minimal, price_in: 0.30, price_out: 2.50}
+  B: {label: "Stronger LLM",  model: gemini-3.8-flash,      thinking: low,     price_in: 0.75, price_out: 3.75}  # 3.8 Flash has no "minimal"
+  C: {label: "Convert first", model: gemini-3.5-flash-lite, thinking: minimal, price_in: 0.30, price_out: 2.50}
+  D: {label: "Decisions",     model: gemini-decision-1,                        price_in: 0.10, price_out: 0.0}
+# Lane C's describe step (photo / frames to one paragraph) runs on the lane C model.
+temperature: 0            # per the test plan; set to null to use the model default
+decision_resolution: low  # lane D media resolution; re-run a type at "medium" if it scores badly
+llm_resolution: null      # lanes A/B: null = the API default
+video_frame_every_s: 2    # lane C
+jev_price_in: 0.042       # theoretical text-only cost for lane C's final call
+warmup_calls: 1
+runs_per_lane: {B: 1}   # the stronger LLM is a reference only
+budget_usd: 0.95       # hard stop; the pilot (run 1) must project under budget_projection_usd
+budget_projection_usd: 1.00
+runs: 3

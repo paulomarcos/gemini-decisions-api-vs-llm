@@ -1,0 +1,11 @@
+From: Daniel Okafor <d.okafor@brightleaf-tea.example>
+To: sales@kumo-supply.example
+Subject: Quote for 500 mailer boxes
+
+Hello Kumo Supply team,
+
+We're a small tea shop in Osaka and we're switching packaging suppliers in January. Could you send a quote for 500 kraft mailer boxes (size M, 250 x 180 x 60 mm) with our logo printed on the lid? Delivery would be to Osaka.
+
+Thanks,
+Daniel Okafor
+Purchasing, Brightleaf Tea

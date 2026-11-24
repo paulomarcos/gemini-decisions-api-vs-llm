@@ -1,0 +1,3 @@
+test,type,lane,lane_name,decisions,calls,errors,accuracy_strict,accuracy_lenient,invalid,same_answer_all_runs,median_s,p95_s,cost_per_item_usd,cost_per_1000_usd,preprocess_median_s,jev_cost_per_1000_usd,pct_conf_ge_0_9,accuracy_conf_ge_0_9
+kumo,image,D,Decisions,72,9,0,83.3,83.3,0,100.0,0.69,1.01,0.000129,0.129,,,43.1,100.0
+kumo,video,D,Decisions,96,12,0,83.3,95.8,0,96.9,0.92,1.42,0.000193,0.193,,,28.1,88.9

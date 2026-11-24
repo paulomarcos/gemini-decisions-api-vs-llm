@@ -1,0 +1,12 @@
+From: Sora Dining <news@sora-dining.example>
+To: info@kumo-supply.example
+Subject: This week's lunch specials 🍱
+
+Hello neighbors!
+
+This week at Sora Dining (2F, next to your office):
+- Mon-Wed: Salmon teishoku ¥1,100
+- Thu-Fri: Katsu curry ¥1,050
+Show this email for a free miso soup.
+
+See you at lunch!

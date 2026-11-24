@@ -1,0 +1,17 @@
+# Labels made by a model (Claude, 2026-11-24) where the dataset has none.
+# compose checks each against a keyword rule and lists disagreements in label_check.md.
+# The article must say these labels are model-assisted (label_source: model+rule).
+
+PM_get_refund_16774:              # "howcan i receive a reimbursement"
+  urgency: 1                      # a general question, nothing blocked yet
+PM_payment_issue_18586:           # "could ya help  me to report a payment problem"
+  urgency: 1
+  urgency_also_ok: [2]            # a payment problem may mean money at risk; the message doesn't say
+PM_track_order_24979:             # "order 00123842current status"
+  urgency: 1
+PM_change_shipping_address_2678:  # "need assistance trying to corrcet my delivery address"
+  urgency: 2                      # a wrong address blocks the order if it ships first
+  urgency_also_ok: [1]
+PM_newsletter_subscription_17424: # "i need assistance receiving ur newsletter"
+  urgency: 0
+  urgency_also_ok: [1]

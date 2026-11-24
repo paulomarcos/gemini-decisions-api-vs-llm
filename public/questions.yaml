@@ -1,0 +1,102 @@
+# Questions for the second test: 20 messy public items, 4 questions each (80 decisions).
+# Wording copied from ../questions.yaml wherever the question exists there.
+# Three questions are new: total_above, is_damaged, auto_renewal.
+
+message:     # Bitext customer support messages
+  team:
+    type: choice
+    instructions: "Which Kumo Supply team should handle this item?"
+    options:
+      billing: "Payments, invoices, charges, refunds and expense receipts"
+      shipping: "Deliveries, carriers, shipping labels, damaged parcels and incoming stock"
+      tech: "Errors and bugs in software, websites or carrier portals"
+      sales: "Quotes, new customers and product questions before buying"
+      management: "Contracts, legal terms and supplier agreements"
+      other: "Anything that doesn't fit the teams above, including spam and newsletters"
+  refund_request:
+    type: noul
+    instructions: "Does the sender ask for a refund or for money back?"
+  urgency:
+    type: score
+    instructions: "How urgent is this item for Kumo Supply?"
+    levels:
+      0: "No action needed, or just for information"
+      1: "Handle this week"
+      2: "Handle today: a customer or an order is blocked, or money is at risk"
+      3: "Handle now: many orders are blocked or money is being lost right now"
+  personal_data:
+    type: noul
+    instructions: "Does this item show personal data of a private person (a person's name together with a phone number, email, home address or card details)?"
+
+receipt:     # CORD v2 receipt photos (Indonesian, prices in Rupiah)
+  image_kind:
+    type: choice
+    instructions: "What does the image show?"
+    options:
+      receipt: "A store or purchase receipt"
+      error_screenshot: "A screenshot of an error in software or a website"
+      parcel_photo: "A photo of a parcel or box"
+      shipping_label: "A shipping label"
+      other: "Something else"
+  total_above:
+    type: noul
+    instructions: "Is the total amount paid on this receipt above 100,000 (Rp 100.000)?"
+  japanese_text:
+    type: noul
+    instructions: "Does the image contain Japanese text?"
+  next_action:
+    type: choice
+    instructions: "What should Kumo Supply do next with this image?"
+    options:
+      file_expense: "Record it as a company expense"
+      fix_software: "Fix a software or integration problem"
+      open_damage_claim: "Open a damage claim with the carrier"
+      reprint_label: "Reprint the shipping label because it is unreadable or wrong"
+      no_action: "Nothing needs to be done"
+
+parcel:      # Roboflow damaged / intact box photos
+  is_damaged:
+    type: noul
+    instructions: "Is the parcel or box in the photo damaged?"
+  next_action:
+    type: choice
+    instructions: "What should Kumo Supply do next with this image?"
+    options:
+      file_expense: "Record it as a company expense"
+      fix_software: "Fix a software or integration problem"
+      open_damage_claim: "Open a damage claim with the carrier"
+      reprint_label: "Reprint the shipping label because it is unreadable or wrong"
+      no_action: "Nothing needs to be done"
+  severity:
+    type: score
+    instructions: "How serious is the problem shown in the image?"
+    levels:
+      0: "No problem"
+      1: "Minor or cosmetic"
+      2: "Blocks or damages one order"
+      3: "Blocks many orders (more than 20) or loses money"
+
+contract:    # SEC EDGAR EX-10 exhibits, converted to PDF
+  doc_type:
+    type: choice
+    instructions: "What kind of document is this?"
+    options:
+      invoice: "An invoice asking Kumo Supply to pay"
+      contract: "A contract or agreement"
+      delivery_note: "A delivery note for goods Kumo Supply received"
+      claim_form: "A customer claim or complaint form"
+      other: "Something else"
+  auto_renewal:
+    type: noul
+    instructions: "Does the agreement renew automatically at the end of its term unless someone cancels it?"
+  money_decision:
+    type: noul
+    instructions: "Does this document require Kumo Supply to decide whether to pay, refund or commit money?"
+  language:
+    type: choice
+    instructions: "Which language is the document mainly written in?"
+    options:
+      english: "English"
+      japanese: "Japanese"
+      mixed: "A mix of English and Japanese"
+      other: "Another language"

@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-24",
+  "started": "2026-11-24T16:49:17",
+  "dry_run": false,
+  "sdk": "google-genai 3.6.1",
+  "python": "3.14.3",
+  "machine": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "lanes": {
+    "D": {
+      "label": "Decisions",
+      "model": "gemini-decision-1",
+      "price_in": 0.1,
+      "price_out": 0.0
+    }
+  },
+  "decision_resolution": "medium",
+  "temperature": 0,
+  "prices_checked": "2026-11-24",
+  "runs": 3,
+  "items": [
+    "I1_receipt_photo",
+    "I2_carrier_portal_error",
+    "I4_shipping_label_photo",
+    "V1_label_error_flash",
+    "V2_checkout_double_charge",
+    "V3_tracking_delays",
+    "V4_product_preview"
+  ],
+  "model_versions": {},
+  "finished": "2026-11-24T16:49:38",
+  "spent_usd": 0.00398,
+  "stopped": null
+}
